@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Hallo Homepagina!{% endblock %}
+
+{% block content %}
+	<h1>Hallo Homepagina2!</h1>
+	<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Item</th>
+      <th scope="col">Completed</th>
+      <th scope="col">Delete?</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for x in all_items %}
+  		{% if x.completed %}
+		    <tr class="table-success">
+		      <th scope="row">{{ x.id }}</th>
+		      <td>{{ x.item }}</td>
+		      <td>{{ x.completed }}</td>
+		     <td>Delete</td>
+		    </tr>
+		{% else %}
+		    <tr class="table-danger strikethrough">
+		      <th scope="row">{{ x.id }}</th>
+		      <td>{{ x.item }}</td>
+		      <td>{{ x.completed }}</td>
+		     <td>Delete</td>
+		    </tr>
+		{% endif %}
+    {% endfor %}
+  </tbody>
+</table> 
+{% endblock %}
